@@ -14,6 +14,9 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
+// Import Encoder 03/11/19
+import edu.wpi.first.wpilibj.Encoder;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -46,6 +49,18 @@ public class RobotMap {
 	public static Solenoid habFrontSolenoid;
 	public static Solenoid habBackSolenoid;
 	public static Solenoid hatchSolenoid;
+	
+	// Declare Encoder 03/11/19
+	public static Encoder armEncoder;
+	public static final int pulsesPerRevolution = 1024;
+	public static final int desiredPulses = 256;
+	
+	/** IMPORTANT ENCODER INFORMATION (SRX MAG ENCODER)
+	*	Pulses per revolution: 1024
+	*	Pulses per degree: 1024 / 360
+	*	Desired Angle: Number of Pulses / Pulses Per Revolution * 360
+	*	
+	*/
 	
 	// Initialize anything related to driving (motor controllers, encoders, etc.)
 	public static void initDrive() {
@@ -83,6 +98,16 @@ public class RobotMap {
 
 	public static void initSensors() {
 		RobotMap.navX = new WPI_AHRS(Port.kMXP);
+	}
+	
+	// Initialize Encoders 03/11/19
+	public static void initEncoders() {
+		RobotMap.armEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+		RobotMap.armEncoder.setMaxPeriod(.1);
+		RobotMap.armEncoder.setMinRate(10);
+		RobotMap.armEncoder.setDistancePerPulse(1 / RobotMap.pulsesPerRevolution); //Set the Distance per Pulse 03/11/2019
+		RobotMap.armEncoder.setReverseDirection(true);
+		RobotMap.armEncoder.setSamplesToAverage(7);	
 	}
 
 }
