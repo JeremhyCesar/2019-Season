@@ -52,8 +52,8 @@ public class RobotMap {
 	
 	// Declare Encoder 03/11/19
 	public static Encoder armEncoder;
-	public static final int pulsesPerRevolution = 1024;
-	public static final int desiredPulses = 256;
+	public static final int PULSES_PER_REVOLUTION = 1024;
+	public static final int DESIRED_PULSES = 256;
 	
 	/** IMPORTANT ENCODER INFORMATION (SRX MAG ENCODER)
 	*	Pulses per revolution: 1024
@@ -105,7 +105,7 @@ public class RobotMap {
 		RobotMap.armEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 		RobotMap.armEncoder.setMaxPeriod(.1);
 		RobotMap.armEncoder.setMinRate(10);
-		RobotMap.armEncoder.setDistancePerPulse(1 / RobotMap.pulsesPerRevolution); //Set the Distance per Pulse 03/11/2019
+		RobotMap.armEncoder.setDistancePerPulse(1 / RobotMap.PULSES_PER_REVOLUTION); //Set the Distance per Pulse 03/11/2019
 		RobotMap.armEncoder.setReverseDirection(true);
 		RobotMap.armEncoder.setSamplesToAverage(7);	
 	}
