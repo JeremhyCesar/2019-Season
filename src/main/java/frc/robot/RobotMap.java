@@ -102,12 +102,12 @@ public class RobotMap {
 	
 	// Initialize Encoders 03/11/19
 	public static void initEncoders() {
-		RobotMap.armEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-		RobotMap.armEncoder.setMaxPeriod(.1);
-		RobotMap.armEncoder.setMinRate(10);
+		// RobotMap.armEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+		// RobotMap.armEncoder.setMaxPeriod(.1);
+		// RobotMap.armEncoder.setMinRate(10);
 		RobotMap.armEncoder.setDistancePerPulse(1 / RobotMap.PULSES_PER_REVOLUTION); //Set the Distance per Pulse 03/11/2019
-		RobotMap.armEncoder.setReverseDirection(true);
-		RobotMap.armEncoder.setSamplesToAverage(7);	
+		// RobotMap.armEncoder.setReverseDirection(true);
+		// RobotMap.armEncoder.setSamplesToAverage(7);	
 	}
 
 }
