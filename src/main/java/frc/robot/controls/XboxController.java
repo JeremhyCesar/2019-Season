@@ -42,6 +42,11 @@ public class XboxController implements ControllerBase {
 	public boolean getHabBack() {
 		return this.controller.getPOV() == 270;
 	}
+	
+	@Override
+	public boolean raiseArm() {	
+		return this.controller.getAButton();
+	}
 
 	@Override
 	public double getArm() {
