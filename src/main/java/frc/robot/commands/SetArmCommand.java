@@ -38,7 +38,7 @@ public class SetArmCommand extends Command {
   }
   
   protected void end() {
-    
+    armEncoder.reset();
   }
 
 }
